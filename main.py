@@ -50,6 +50,26 @@ def create_subject():
 
     return jsonify(new_subject), 201  # Return the created subject with 201 status code
 
+# update subject
+@app.route('/modify_subject/<int:subject_id>', methods=['PUT'])
+def update_subject(subject_id):
+    # Get the updated subject data from the request body
+    updated_subject = request.json
+
+    # Load existing subjects
+    subjects_data = load_subjects_from_file()
+
+    # Find the subject to update by subject_id
+    for subject in subjects_data:
+        if subject['subject_id'] == subject_id:
+            # Update the subject with new data
+            subject.update(updated_subject)
+            break
+
+    # Save the updated subjects data to the file
+    save_subjects_to_file(subjects_data)
+
+    return jsonify(updated_subject), 200  # Return the updated subject with 200 status code
 
 # Run the Flask app on localhost with port 8080
 if __name__ == '__main__':
