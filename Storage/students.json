@@ -1,4 +1,11 @@
-#student data
-haihghghgg
-ghhvbnuhuhhuh dddghnc
-fzxcvghjk
+
+//class_2
+
+[
+  {"student_id": 2001, "student_name": "Justin", "student_class": "2", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "justin@gmail.com", "student_ph.no": "0899451745"},
+  {"student_id": 2002 , "student_name": "Nandini", "student_class": "2", "student_dob": "17/05/2000", "student_gender":"Female", "student_email": "nandini@gmail.com", "student_ph.no": "0899451745"}
+
+]
+
+//class_3
+
