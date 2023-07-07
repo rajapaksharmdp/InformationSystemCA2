@@ -56,8 +56,6 @@ def create_subject():
     return jsonify(new_subject), 201  # Return the created subject with 201 status code
 
 
-
-
 # update subject
 @app.route('/modify_subject/<int:subject_id>', methods=['PUT'])
 def update_subject(subject_id):
