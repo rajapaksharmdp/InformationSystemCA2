@@ -1,1 +1,5 @@
-test /nandu
+[{"teacher_id": 214, "teacher_name": "Andrew", "teacher_email": "andrew1@gmail.com", "teacher_ph.no": "0899451745", "teacher_address": "parnell street dublin ireland"},
+  {"teacher_id": 226, "teacher_name": "John", "teacher_email": "John13@gmail.com", "teacher_ph.no": "0899761235", "teacher_address": " limerick ireland"},
+  {"teacher_id": 342, "teacher_name": "Samson", "teacher_email": "samson98@gmail.com", "teacher_ph.no": "0878462459", "teacher_address": "terenure dublin ireland"}
+
+]
