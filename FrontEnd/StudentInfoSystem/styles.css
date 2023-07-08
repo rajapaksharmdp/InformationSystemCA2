@@ -1,0 +1,14 @@
+.custom-card {
+  background-color: #94b0cc;
+  border-color: #ffffff;
+  margin-left: 50%;
+  width: 100%;
+}
+
+.custom-card .card-title {
+  color: #225c97;
+}
+
+.custom-card .card-text {
+  color: #6c757d;
+}
