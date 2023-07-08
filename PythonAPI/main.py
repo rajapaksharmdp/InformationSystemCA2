@@ -3,6 +3,7 @@ import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
+
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -55,8 +56,6 @@ def create_subject():
     save_subjects_to_file(subjects_data)
 
     return jsonify(new_subject), 201  # Return the created subject with 201 status code
-
-
 
 
 # update subject
