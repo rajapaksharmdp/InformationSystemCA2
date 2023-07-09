@@ -3,9 +3,9 @@ import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app)
 
 # File path to the subjects data
 subjects_file = 'Storage/subjects.json'
@@ -44,10 +44,6 @@ def create_subject():
     existing_ids = [subject['subject_id'] for subject in subjects_data]
     if new_subject['subject_id'] in existing_ids:
         return jsonify({'error': 'Subject ID already exists'}), 400
-
-    # Assign a new subject ID
-    new_subject_id = len(subjects_data) + 1
-    new_subject['subject_id'] = new_subject_id
 
     # Add the new subject to the list
     subjects_data.append(new_subject)
@@ -97,6 +93,36 @@ def delete_subject(subject_id):
     save_subjects_to_file(subjects_data)
 
     return jsonify({'message': 'Subject deleted'}), 200  # Return a response with a message and 200 status code
+
+
+@app.route('/filter_subjects', methods=['GET'])
+def filter_subjects():
+    subjects_data = load_subjects_from_file()
+
+    # Get the filter parameters from the query string
+    subject_id = request.args.get('subject_id')
+    subject_name = request.args.get('subject_name')
+    teacher = request.args.get('teacher')
+
+    filtered_subjects = []
+
+    # Filter the subjects based on the provided parameters
+    for subject in subjects_data:
+        if subject_id is not None and subject_id.lower() != subject['subject_id'].lower():
+            continue
+        if subject_name is not None and subject_name.lower() not in subject['subject_name'].lower():
+            continue
+        if teacher is not None:
+            teacher_found = False
+            for teacher_name in subject['teachers']:
+                if teacher.lower() in teacher_name.lower():
+                    teacher_found = True
+                    break
+            if not teacher_found:
+                continue
+        filtered_subjects.append(subject)
+
+    return jsonify(filtered_subjects)
 
 
 # Run the Flask app on localhost with port 8080
