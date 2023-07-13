@@ -1,0 +1,122 @@
+body {
+  /* padding-top: 60px; */
+  background-color :#b9c9dc !important;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  color: #fbfdff; 
+  font-family: Arial, sans-serif; 
+  font-size: 50px;
+  font-weight: bold; 
+  background-color: #120836;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-family: calibri; 
+  z-index: 999;
+}
+
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-item a:hover {
+  background-color: #555;
+}
+
+li{
+  list-style: none; display: inline-block;
+}
+
+li a{
+  color: white; 
+  font-size: 18px; 
+  font-weight: bold; 
+  margin-right: 25px;
+}
+
+
+.nav-logo{
+  color:white;
+  font-size: 50px; 
+  font-weight: bold; 
+  margin-right: auto;
+  margin-left: 10px;
+  
+}
+
+.custom-card {
+  background-color: #94b0cc;
+  border-color: #ffffff;
+  margin-left: 50%;
+  width: 100%;
+}
+
+.custom-card .card-title {
+  color: #225c97;
+}
+
+.custom-card .card-text {
+  color: #15293b;
+}
+
+.topics {
+  color: #15293b;
+  margin-left: 10px;
+  font-size: 14pt;
+}
+
+.card-teachers {
+  color: #15293b;
+  margin-left: 10px;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-top: 10px;
+} 
+
+.form-group {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.filterbutton {
+  margin-top: 10% !important;
+  background-color: #2840bb;
+  color: white;
+}
+
+.addsubjectbutton {
+  background-color: #28a745;
+  color: white;
+  height: 30px;
+}
+
+.addsubjectbutton:hover {
+  background-color: #218838;
+}
+
+.addsubjectbutton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
