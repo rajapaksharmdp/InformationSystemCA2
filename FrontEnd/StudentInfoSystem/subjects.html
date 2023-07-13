@@ -44,6 +44,21 @@
         <button id="add-subject-btn" class="addsubjectbutton" data-toggle="modal" data-target="#subjectModal">Add New Subject</button>
       </div>
     </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="sort-by">
+                <option value="subject_name">Subject Name</option>
+                <option value="subject_id">Subject ID</option>
+              </select>
+              
+              <select id="sort-order">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+        </div>
+      </div>
+      
   </div>
 
   <div id="subjects"></div>
@@ -89,6 +104,47 @@
       </div>
     </div>
   </div>
+
+  <!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateModalLabel">Update Subject</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="updateSubjectIdInput" class="form-label">Subject ID</label>
+              <input type="text" class="form-control" id="updateSubjectIdInput" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="updateSubjectNameInput" class="form-label">Subject Name</label>
+              <input type="text" class="form-control" id="updateSubjectNameInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateContentInput" class="form-label">Content</label>
+              <textarea class="form-control" id="updateContentInput" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="updateTopicsInput" class="form-label">Topics</label>
+              <input type="text" class="form-control" id="updateTopicsInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateTeachersInput" class="form-label">Teachers</label>
+              <input type="text" class="form-control" id="updateTeachersInput" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="updateSubjectBtn">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
   </div>
   

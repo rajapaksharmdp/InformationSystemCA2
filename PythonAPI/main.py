@@ -28,7 +28,20 @@ def save_subjects_to_file(subjects_data):
 @app.route('/', methods=['GET'])
 def get_subjects():
     subjects_data = load_subjects_from_file()
+    sort_by = request.args.get('sort_by')
+    sort_order = request.args.get('sort_order')
+
+    if sort_by and sort_order:
+        subjects_data = sort_subjects(subjects_data, sort_by, sort_order)
     return jsonify(subjects_data)
+
+
+def sort_subjects(subjects_data, sort_by, sort_order):
+    if sort_by == 'subject_name':
+        subjects_data.sort(key=lambda x: x['subject_name'], reverse=sort_order == 'desc')
+    elif sort_by == 'subject_id':
+        subjects_data.sort(key=lambda x: x['subject_id'], reverse=sort_order == 'desc')
+    return subjects_data
 
 
 # create subject
@@ -55,7 +68,7 @@ def create_subject():
 
 
 # update subject
-@app.route('/modify_subject/<int:subject_id>', methods=['PUT'])
+@app.route('/update_subject/<subject_id>', methods=['PUT'])
 def update_subject(subject_id):
     # Get the updated subject data from the request body
     updated_subject = request.json
@@ -77,7 +90,7 @@ def update_subject(subject_id):
 
 
 # delete subject
-@app.route('/delete_subject/<int:subject_id>', methods=['DELETE'])
+@app.route('/delete_subject/<subject_id>', methods=['DELETE'])
 def delete_subject(subject_id):
     # Load existing subjects
     subjects_data = load_subjects_from_file()
