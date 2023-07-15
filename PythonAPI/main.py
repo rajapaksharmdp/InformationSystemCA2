@@ -60,6 +60,33 @@ def hash_password(password):
     return hashed_password
 
 
+@app.route('/login', methods=['POST'])
+def login():
+    try:
+        login_data = request.json
+        users_data = load_users_from_file()
+
+        username = login_data.get('username')
+        password = login_data.get('password')
+
+        for user in users_data:
+            if user['username'] == username and verify_password(password, user['password']):
+                role = user['role']
+                return jsonify({'message': 'Login successful', 'role': role}), 200
+
+        return jsonify({'error': 'Invalid username or password'}), 401
+
+    except Exception as e:
+        return jsonify({'error': 'Login failed', 'details': str(e)}), 500
+
+
+def verify_password(password, hashed_password):
+    salt = "random_salt"
+    salted_password = salt + password
+    hashed_input = hashlib.sha256(salted_password.encode()).hexdigest()
+    return hashed_input == hashed_password
+
+
 """--------------------------------------------------------------------------------------------------------------------
 Subjects Section
 --------------------------------------------------------------------------------------------------------------------"""
