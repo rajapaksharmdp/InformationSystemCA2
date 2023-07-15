@@ -8,13 +8,15 @@
   <div class="bg-container">
     <div class="welcome-text">Welcome to Royal College Student Information System</div>
     <div class="login-container">
-      <button class="login-btn" onclick="showLoginForm()">Login</button>
-      <button class="register-btn" onclick="showRegisterForm()">Register</button>
+      <div id="login-form" class="hidden">
+        <input type="text" placeholder="Username" id="usernameInput">
+        <input type="password" placeholder="Password" id="passwordInput">
+        <button class="login-btn" id="loginBtn">Login</button>
+      </div>
+      <div id="register-form" class="hidden">
+      </div>
     </div>
-    <div id="login-form" class="hidden">
-    </div>
-    <div id="register-form" class="hidden">
-    </div>
+    <button class="register-btn" onclick="showRegisterForm()">Register Now</button>
   </div>
   <script src="subjects.js"></script>
 </body>
