@@ -120,3 +120,66 @@ li a{
 .addsubjectbutton:focus {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
+
+
+.bg-container {
+  background-image: url(images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 100px;
+}
+
+.login-container {
+  margin-top: 20px;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.login-btn:hover {
+  background-color: #0056b3; 
+}
+
+.register-btn {
+  padding: 10px 20px;
+  background-color: #22ad45;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.register-btn:hover {
+  background-color: #0d6523; 
+}
+
+
+#login-form input, #register-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
