@@ -1,7 +1,9 @@
+from typing import Any
 import requests
 import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import hashlib
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -10,7 +12,7 @@ CORS(app)
 """--------------------------------------------------------------------------------------------------------------------
 Login Section
 --------------------------------------------------------------------------------------------------------------------"""
-users_data = 'Storage/register.json'
+users_file = 'Storage/users.json'
 
 
 def save_users_to_file(users_data):
@@ -18,27 +20,44 @@ def save_users_to_file(users_data):
         json.dump(users_data, f)
 
 
-# Registration route
+def load_users_from_file():
+    try:
+        with open(users_file) as f:
+            users_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        users_data = []
+    return users_data
+
+
+# register users
 @app.route('/register', methods=['POST'])
 def register():
-    # Get the user data from the request body
-    user_data = request.json
+    try:
+        user_data = request.json
+        users_data = load_users_from_file()
 
-    # Load existing users
-    users_data = load_users_from_file()
+        existing_usernames = [user['username'] for user in users_data]
+        if user_data['username'] in existing_usernames:
+            return jsonify({'error': 'User already exists'}), 400
 
-    # Check if the username already exists
-    existing_usernames = [user['username'] for user in users_data]
-    if user_data['username'] in existing_usernames:
-        return jsonify({'error': 'Username already exists'}), 400
+        password = user_data['password']
+        hashed_password = hash_password(password)
 
-    # Add the new user to the list
-    users_data.append(user_data)
+        user_data['password'] = hashed_password
+        users_data.append(user_data)
+        save_users_to_file(users_data)
 
-    # Save the updated users' data to the file
-    save_users_to_file(users_data)
+        return jsonify({'message': 'Registration successful'}), 201
 
-    return jsonify({'message': 'Registration successful'}), 201
+    except Exception as e:
+        return jsonify({'error': 'Registration failed', 'details': str(e)}), 500
+
+
+def hash_password(password):
+    salt = "random_salt"
+    salted_password = salt + password
+    hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
+    return hashed_password
 
 
 """--------------------------------------------------------------------------------------------------------------------
