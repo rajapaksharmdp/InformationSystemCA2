@@ -7,6 +7,44 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+"""--------------------------------------------------------------------------------------------------------------------
+Login Section
+--------------------------------------------------------------------------------------------------------------------"""
+users_data = 'Storage/register.json'
+
+
+def save_users_to_file(users_data):
+    with open(users_file, 'w') as f:
+        json.dump(users_data, f)
+
+
+# Registration route
+@app.route('/register', methods=['POST'])
+def register():
+    # Get the user data from the request body
+    user_data = request.json
+
+    # Load existing users
+    users_data = load_users_from_file()
+
+    # Check if the username already exists
+    existing_usernames = [user['username'] for user in users_data]
+    if user_data['username'] in existing_usernames:
+        return jsonify({'error': 'Username already exists'}), 400
+
+    # Add the new user to the list
+    users_data.append(user_data)
+
+    # Save the updated users' data to the file
+    save_users_to_file(users_data)
+
+    return jsonify({'message': 'Registration successful'}), 201
+
+
+"""--------------------------------------------------------------------------------------------------------------------
+Subjects Section
+--------------------------------------------------------------------------------------------------------------------"""
+
 # File path to the subjects data
 subjects_file = 'Storage/subjects.json'
 
