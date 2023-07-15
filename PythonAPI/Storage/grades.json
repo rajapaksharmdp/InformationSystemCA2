@@ -1,1 +1,92 @@
-test
+[
+  {
+    "student_id": "001",
+    "student_name": "Nimal perera",
+    "subjects": {
+      "Math": {
+        "mark": 80,
+        "grade": "A"
+      },
+      "Science": {
+        "mark": 75,
+        "grade": "A"
+      },
+      "English": {
+        "mark": 90,
+        "grade": "A+"
+      }
+    }
+  },
+  {
+    "student_id": "002",
+    "student_name": "Jegan Sin",
+    "subjects": {
+      "Math": {
+        "mark": 65,
+        "grade": "B"
+      },
+      "Science": {
+        "mark": 70,
+        "grade": "B"
+      },
+      "English": {
+        "mark": 80,
+        "grade": "A"
+      }
+    }
+  },
+  {
+    "student_id": "003",
+    "student_name": "Biyanka Don",
+    "subjects": {
+      "Math": {
+        "mark": 55,
+        "grade": "C"
+      },
+      "Science": {
+        "mark": 60,
+        "grade": "C"
+      },
+      "English": {
+        "mark": 50,
+        "grade": "D"
+      }
+    }
+  },
+  {
+    "student_id": "004",
+    "student_name": "Anika Silva",
+    "subjects": {
+      "Math": {
+        "mark": 85,
+        "grade": "A"
+      },
+      "Science": {
+        "mark": 80,
+        "grade": "A"
+      },
+      "English": {
+        "mark": 75,
+        "grade": "A"
+      }
+    }
+  },
+  {
+    "student_id": "005",
+    "student_name": "Mavin Jude" ,
+    "subjects": {
+      "Math": {
+        "mark": 70,
+        "grade": "B"
+      },
+      "Science": {
+        "mark": 65,
+        "grade": "B"
+      },
+      "English": {
+        "mark": 60,
+        "grade": "C"
+      }
+    }
+  }
+]
