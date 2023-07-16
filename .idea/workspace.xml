@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4447b36-8b57-43c1-bfa3-edfcfbd9e5eb" name="Changes" comment="" />
+    <list default="true" id="a4447b36-8b57-43c1-bfa3-edfcfbd9e5eb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PythonAPI/grades.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonAPI/grades.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,6 +255,11 @@
           <url>file://$PROJECT_DIR$/PythonAPI/main.py</url>
           <line>200</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PythonAPI/grades.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
