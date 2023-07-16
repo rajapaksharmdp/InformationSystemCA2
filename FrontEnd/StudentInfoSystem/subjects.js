@@ -191,6 +191,13 @@ function displayAllSubjects() {
       });
   }
   
+  
+  // Attach event listener to filter button when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    let filterBtn = document.getElementById('filter-btn');
+    filterBtn.addEventListener('click', filterSubjects);
+  });
+
   // Attach event listener to filter button when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {
     let filterBtn = document.getElementById('filter-btn');
