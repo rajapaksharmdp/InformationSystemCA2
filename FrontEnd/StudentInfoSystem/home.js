@@ -48,12 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Check if required fields are empty
       if (username.trim() === '' || password.trim() === '') {
-        console.log('Username and password are required.');
-        console.log(username);
-        console.log(password);
+        alert('Username and password are required.');
         return;
       }
   
+      let emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+        alert('Invalid email format.');
+        return;
+      }
+
+
       let registrationData = {
         fullname: fullname,
         username: username,
@@ -81,6 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
             successMessage.textContent = 'Registration successful! You can now log in.';
             let modalBody = document.querySelector('#registrationModal .modal-body');
             modalBody.appendChild(successMessage);
+          if(error){
+            error.classList.add('alert', 'alert-error');
+            successMessage.textContent = 'Registration successful! You can now log in.';
+          }
 
         setTimeout(() => {
           let registrationModal = new bootstrap.Modal(document.getElementById('registrationModal'));
@@ -95,5 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error('Error:', error);
         });
     });
+
+    
+  document.getElementById('showPassword').addEventListener('change', () => {
+    let passwordInput = document.getElementById('passwordInput');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
   });
+
+});
   
