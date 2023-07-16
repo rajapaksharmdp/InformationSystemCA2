@@ -26,8 +26,10 @@ function displayAllSubjects() {
     let subjectId = document.getElementById('subject-id').value;
     let subjectName = document.getElementById('subject-name').value;
     let teacherName = document.getElementById('teacher-name').value;
-  
-    // Build the query string
+
+    let sortBy = document.getElementById('sort-by').value;
+    let sortOrder = document.getElementById('sort-order').value;
+
     let queryString = '';
     if (subjectId !== '') {
       queryString += `subject_id=${subjectId}&`;
@@ -36,11 +38,21 @@ function displayAllSubjects() {
       queryString += `subject_name=${subjectName}&`;
     }
     if (teacherName !== '') {
-      queryString += `teacher=${teacherName}`;
+      queryString += `teacher=${teacherName}&`;
     }
+    if (sortOrder !== '') {
+      queryString += `sort_order=${sortOrder}&`;
+    }
+    if (sortBy !== '') {
+      queryString += `sort_by=${sortBy}&`;
+    }
+    if (queryString !== '') {
+      queryString = '?' + queryString.slice(0, -1);
+    }
+    
   
     // Fetch filtered subjects from the API
-    fetch(`http://localhost:8080/filter_subjects?${queryString}`)
+    fetch(`http://localhost:8080/filter_subjects${queryString}`)
       .then(response => response.json())
       .then(data => {
         let subjectsContainer = document.getElementById('subjects');
@@ -104,7 +116,7 @@ function displayAllSubjects() {
   
   // Function to confirm subject deletion
   function confirmDeleteSubject(subjectId) {
-    if (confirm('Are you sure you want to delete this subject?')) {
+    if (confirm('Are you sure? you want to delete this subject?')) {
       deleteSubject(subjectId);
     }
   }
@@ -238,9 +250,7 @@ function displayAllSubjects() {
         return response.json();
       })
       .then(data => {
-        // Display success notification
         alert('Subject successfully added!');
-        // Reset the form inputs
         document.getElementById('subjectIdInput').value = '';
         document.getElementById('subjectNameInput').value = '';
         document.getElementById('contentInput').value = '';
@@ -249,12 +259,10 @@ function displayAllSubjects() {
         // Close the modal
         let subjectModal = new bootstrap.Modal(document.getElementById('subjectModal'));
         subjectModal.hide();
-        // Fetch and display all subjects to update the subject list
         displayAllSubjects();
       })
       .catch(error => {
         console.error('Error:', error);
-        // Display error notification
         alert('An error occurred. Please try again.');
       });
   });

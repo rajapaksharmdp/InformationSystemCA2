@@ -195,11 +195,13 @@ def delete_subject(subject_id):
 @app.route('/filter_subjects', methods=['GET'])
 def filter_subjects():
     subjects_data = load_subjects_from_file()
-
+    
     # Get the filter parameters from the query string
     subject_id = request.args.get('subject_id')
     subject_name = request.args.get('subject_name')
     teacher = request.args.get('teacher')
+    sort_by = request.args.get('sort_by')
+    sort_order = request.args.get('sort_order')
 
     filtered_subjects = []
 
@@ -218,6 +220,10 @@ def filter_subjects():
             if not teacher_found:
                 continue
         filtered_subjects.append(subject)
+
+    # Apply sorting based on the provided parameters
+    if sort_by and sort_order:
+        filtered_subjects = sort_subjects(filtered_subjects, sort_by, sort_order)
 
     return jsonify(filtered_subjects)
 
