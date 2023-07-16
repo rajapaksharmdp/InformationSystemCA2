@@ -68,17 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
           // Check if registration was successful
-          if (data.success) {
+          if (data.message === 'Registration successful'){
             console.log('Registration successful');
-            // Close the registration modal after registration
-            let registrationModal = new bootstrap.Modal(
-              document.getElementById('registrationModal')
-            );
-            registrationModal.hide();
-            // Optionally, you can perform further actions here
+            let successMessage = document.createElement('div');
+            successMessage.classList.add('alert', 'alert-success');
+            successMessage.textContent = 'Registration successful! You can now log in.';
+            let modalBody = document.querySelector('#registrationModal .modal-body');
+            modalBody.appendChild(successMessage);
+        setTimeout(() => {
+          let registrationModal = new bootstrap.Modal(document.getElementById('registrationModal'));
+          registrationModal.hide();
+        }, 2000);
           } else {
             console.log('Registration failed:', data.message);
-            // Optionally, you can handle registration failure here
+    
           }
         })
         .catch(error => {
