@@ -30,7 +30,7 @@ class StudentAPI:
 
     # new student
 
-    @app.route('/students', methods=['POST'])
+    @app.route('/newstudent', methods=['POST'])
     def create_student(self):
         new_student = request.json
 
@@ -40,24 +40,10 @@ class StudentAPI:
         StudentAPI.save_student(students_data)
         return jsonify(new_student), 201
 
-    # update student
-
-    @app.route('/students/<int:student_id>', methods=['PUT'])
-    def update_student(self, student_id):
-        updated_student = request.json
-
-        students_data = StudentAPI.open_student()
-        for student in students_data:
-            if student['student_id'] == student_id:
-                student.update(updated_student)
-                break
-
-        StudentAPI.save_student(students_data)
-        return jsonify(updated_student), 200
 
     # delete student
 
-    @app.route('/students/<int:student_id>', methods=['DELETE'])
+    @app.route('/deletestudents/<int:student_id>', methods=['DELETE'])
     def delete_student(self, student_id):
         students_data = StudentAPI.open_student()
         for student in students_data:
