@@ -48,7 +48,6 @@ def update_teacher(teacher_id):
 
     return jsonify({"message": "Teacher not found"}), 404
 
-
 @app.route('/delete_teachers/<int:teacher_id>', methods=['DELETE'])
 def delete_teacher(teacher_id):
     teachers_data = load_teachers_from_file()
