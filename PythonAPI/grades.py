@@ -1,98 +1,90 @@
 import json
-from flask import Flask, jsonify
+import requests
+import json
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-# Initialize Flask app
+
 app = Flask(__name__)
 CORS(app)
 
-# File path to the students data
-students_file = 'Storage/students.json'
-# Load students from the file
-def load_students():
-    with open(students_file) as f:
-        students_data = json.load(f)
-    return students_data
+GRADES_FILE = 'grades.json'
+# Load the JSON data from a file
+def load_data():
+    with open(GRADES_FILE, 'r') as file:
+        data = json.load(file)
+    return data
 
 
-# Save students to the file
-def save_students(students_data):
-    with open(students_file, 'w') as f:
-        json.dump(students_data, f, indent=4)
-# API route to get all students
-@app.route('/students', methods=['GET'])
+# Save the JSON data to a file
+def save_data(data):
+    with open(GRADES_FILE, 'w') as file:
+        json.dump(data, file, indent=2)
+
+
+# Get all students
 def get_students():
-    return jsonify(students)
+    data = load_data()
+    students = [student for student in data]
+    return students
 
-#API route to get all students
-@app.route('/students',method=['GET'])
-def get_students():
-    return jsonify(students)
-# API route to create a new student
-@app.route('/students', methods=['POST'])
-def create_student():
+
+# Get a specific student by ID
+def get_student(student_id):
+    data = load_data()
+    student = next((student for student in data if student['student_id'] == student_id), None)
+    return student
+
+
+# Create a new student
+def create_student(student_id, student_name):
+    data = load_data()
     new_student = {
-        "student_id": request.json["student_id"],
-        "student_name": request.json["student_name"],
-        "grades": {}
+        "student_id": student_id,
+        "student_name": student_name,
+        "subjects": []
     }
-    students.append(new_student)
-    return jsonify(new_student), 201
+    data.append(new_student)
+    save_data(data)
 
-# API route to update a student's grades
-@app.route('/students/<int:student_id>', methods=['PUT'])
-def update_grades(student_id):
-    student in students:
-        if student["student_id"] == student_id:
-            grades = request.json["grades"]
-            student["grades"] = grades
-            return jsonify(student)
-    return jsonify({"error": "Student not found"}), 404
 
-# API route to delete a student
-@app.route('/students/<int:student_id>', methods=['DELETE'])
-def delete_student(student_id):
-    for student in students:
-        if student["student_id"] == student_id:
-            students.remove(student)
-            return jsonify({"message": "Student deleted"})
-    return jsonify({"error": "Student not found"}), 404
+# Add a subject to a student
+def add_subject(student_id, subject_id, subject_name, teacher_id, mark, grade):
+    data = load_data()
+    student = next((student for student in data if student['student_id'] == student_id), None)
+    if student:
+        new_subject = {
+            "subject_id": subject_id,
+            "subject_name": subject_name,
+            "teacher_id": teacher_id,
+            "mark": mark,
+            "grade": grade
+        }
+        student['subjects'].append(new_subject)
+        save_data(data)
+
+
+# Update a subject's details
+def update_subject(student_id, subject_id, mark, grade):
+    data = load_data()
+    student = next((student for student in data if student['student_id'] == student_id), None)
+    if student:
+        for subject in student['subjects']:
+            if subject['subject_id'] == subject_id:
+                subject['mark'] = mark
+                subject['grade'] = grade
+                save_data(data)
+                break
+
+
+# Delete a subject from a student
+def delete_subject(student_id, subject_id):
+    data = load_data()
+    student = next((student for student in data if student['student_id'] == student_id), None)
+    if student:
+        student['subjects'] = [subject for subject in student['subjects'] if subject['subject_id'] != subject_id]
+        save_data(data)
+
 
 if __name__ == '__main__':
-    app.run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Calculate grades for each student
-def calculate_grades(students_data):
-    for student in students_data:
-        marks = student['subjects']
-        total_marks = sum(marks[sub]['mark'] for sub in marks)
-        subjects_count = len(marks)
-        percentage = total_marks / subjects_count if subjects_count > 0 else 0
-
-        if percentage >= 85:
-            grade = 'A+'
-        elif percentage >= 75:
-            grade = 'A'
-        elif percentage >= 65:
-            grade = 'B'
-        elif percentage >= 55:
-            grade = 'C'
-        elif percentage >= 45:
-            grade = 'D'
-        else:
-            grade = 'F'
-        student['grade'] = grade
-
+    app.run(port=8080)
