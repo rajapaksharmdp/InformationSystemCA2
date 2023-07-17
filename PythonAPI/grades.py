@@ -1,88 +1,94 @@
 import json
-import requests
-import json
 from flask import Flask, jsonify, request
-
 
 app = Flask(__name__)
 
+GRADES_FILE = 'Storage/grades.json'
+STUDENT_FILE = 'Storage/students.json'
 
-GRADES_FILE = 'grades.json'
+
 # Load the JSON data from a file
-def load_data():
-    with open(GRADES_FILE, 'r') as file:
+def load_data(file_path):
+    with open(file_path) as file:
         data = json.load(file)
     return data
 
 
 # Save the JSON data to a file
-def save_data(data):
-    with open(GRADES_FILE, 'w') as file:
+def save_data(data, file_path):
+    with open(file_path, 'w') as file:
         json.dump(data, file, indent=2)
 
 
-# Get all students
-def get_students():
-    data = load_data()
-    students = [student for student in data]
-    return students
+# Get all grades
+@app.route('/grades', methods=['GET'])
+def get_grades():
+    grades_data = load_data(GRADES_FILE)
+    return jsonify(grades_data)
 
 
-# Get a specific student by ID
-def get_student(student_id):
-    data = load_data()
-    student = next((student for student in data if student['student_id'] == student_id), None)
-    return student
+# Add a grade to a student
+@app.route('/grades', methods=['POST'])
+def create_grade():
+    # Get the new grade data from the request body
+    new_grade = request.json
+
+    # Load existing grades
+    grades_data = load_data(GRADES_FILE)
+
+    # Check if grade ID already exists
+    existing_ids = [grade['grade_id'] for grade in grades_data]
+    if new_grade['grade_id'] in existing_ids:
+        return jsonify({'error': 'Grade ID already exists'}), 400
+
+    # Add the new grade to the list
+    grades_data.append(new_grade)
+
+    # Save the updated grades data to the file
+    save_data(grades_data, GRADES_FILE)
+
+    return jsonify(new_grade), 201  # Return the created grade with 201 status code
 
 
-# Create a new student
-def create_student(student_id, student_name):
-    data = load_data()
-    new_student = {
-        "student_id": student_id,
-        "student_name": student_name,
-        "subjects": []
-    }
-    data.append(new_student)
-    save_data(data)
+# Update a grade
+@app.route('/grades/<string:grade_id>', methods=['PUT'])
+def update_grade(grade_id):
+    # Get the updated grade data from the request body
+    updated_grade = request.json
+
+    # Load existing grades
+    grades_data = load_data(GRADES_FILE)
+
+    # Find the grade to update
+    for grade in grades_data:
+        if grade['grade_id'] == grade_id:
+            # Update the grade data
+            grade.update(updated_grade)
+            # Save the updated grades data to the file
+            save_data(grades_data, GRADES_FILE)
+            return jsonify(grade), 200
+
+    # Grade not found
+    return jsonify({'error': 'Grade not found'}), 404
 
 
-# Add a subject to a student
-def add_subject(student_id, subject_id, subject_name, teacher_id, mark, grade):
-    data = load_data()
-    student = next((student for student in data if student['student_id'] == student_id), None)
-    if student:
-        new_subject = {
-            "subject_id": subject_id,
-            "subject_name": subject_name,
-            "teacher_id": teacher_id,
-            "mark": mark,
-            "grade": grade
-        }
-        student['subjects'].append(new_subject)
-        save_data(data)
+# Delete a grade
+@app.route('/grades/<string:grade_id>', methods=['DELETE'])
+def delete_grade(grade_id):
+    # Load existing grades
+    grades_data = load_data(GRADES_FILE)
 
+    # Find the grade to delete
+    for grade in grades_data:
+        if grade['grade_id'] == grade_id:
+            # Remove the grade from the list
+            grades_data.remove(grade)
+            # Save the updated grades data to the file
+            save_data(grades_data, GRADES_FILE)
+            return jsonify({'message': 'Grade deleted successfully'}), 200
 
-# Update a subject's details
-def update_subject(student_id, subject_id, mark, grade):
-    data = load_data()
-    student = next((student for student in data if student['student_id'] == student_id), None)
-    if student:
-        for subject in student['subjects']:
-            if subject['subject_id'] == subject_id:
-                subject['mark'] = mark
-                subject['grade'] = grade
-                save_data(data)
-                break
-
-
-# Delete a subject from a student
-def delete_subject(student_id, subject_id):
-    data = load_data()
-    student = next((student for student in data if student['student_id'] == student_id), None)
-    if student:
-        student['subjects'] = [subject for subject in student['subjects'] if subject['subject_id'] != subject_id]
-        save_data(data)
+    # Grade not found
+    return jsonify({'error': 'Grade not found'}), 404
 
 
 if __name__ == '__main__':
