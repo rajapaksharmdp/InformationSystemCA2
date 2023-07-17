@@ -8,7 +8,7 @@
         "subject_name": "Math",
         "teacher_id": "T001",
         "mark": 80,
-        "grade": "A"
+        "grade_id": "A"
       }
     ]
   },
@@ -21,7 +21,7 @@
         "subject_name": "Science",
         "teacher_id": "T002",
         "mark": 75,
-        "grade": "A"
+        "grade_id": "A"
       }
     ]
   },
@@ -34,7 +34,7 @@
         "subject_name": "English",
         "teacher_id": "T003",
         "mark": 90,
-        "grade": "A+"
+        "grade_id": "A+"
       }
     ]
   },
@@ -47,7 +47,7 @@
         "subject_name": "Math",
         "teacher_id": "T001",
         "mark": 65,
-        "grade": "B"
+        "grade_id": "B"
       }
     ]
   },
@@ -60,7 +60,7 @@
         "subject_name": "Science",
         "teacher_id": "T002",
         "mark": 70,
-        "grade": "B"
+        "grade_id": "B"
       }
     ]
   },
@@ -73,7 +73,7 @@
         "subject_name": "English",
         "teacher_id": "T003",
         "mark": 80,
-        "grade": "A"
+        "grade_id": "A"
       }
     ]
   },
@@ -86,7 +86,7 @@
         "subject_name": "Math",
         "teacher_id": "T001",
         "mark": 55,
-        "grade": "C"
+        "grade_id": "C"
       }
     ]
   },
@@ -99,7 +99,7 @@
         "subject_name": "Science",
         "teacher_id": "T002",
         "mark": 60,
-        "grade": "C"
+        "grade_id": "C"
       }
     ]
   },
@@ -112,7 +112,7 @@
         "subject_name": "English",
         "teacher_id": "T003",
         "mark": 50,
-        "grade": "D"
+        "grade_id": "D"
       }
     ]
   },
@@ -125,7 +125,7 @@
         "subject_name": "Math",
         "teacher_id": "T001",
         "mark": 85,
-        "grade": "A"
+        "grade_id": "A"
       }
     ]
   },
@@ -138,7 +138,7 @@
         "subject_name": "Science",
         "teacher_id": "T002",
         "mark": 80,
-        "grade": "A"
+        "grade_id": "A"
       }
     ]
   },
@@ -151,7 +151,7 @@
         "subject_name": "English",
         "teacher_id": "T003",
         "mark": 75,
-        "grade": "A"
+        "grade_id": "A"
       }
     ]
   },
@@ -164,7 +164,7 @@
         "subject_name": "Math",
         "teacher_id": "T001",
         "mark": 70,
-        "grade": "B"
+        "grade_id": "B"
       }
     ]
   },
@@ -177,7 +177,7 @@
         "subject_name": "Science",
         "teacher_id": "T002",
         "mark": 65,
-        "grade": "B"
+        "grade_id": "B"
       }
     ]
   },
@@ -190,7 +190,7 @@
         "subject_name": "English",
         "teacher_id": "T003",
         "mark": 60,
-        "grade": "C"
+        "grade_id": "C"
       }
     ]
   }
