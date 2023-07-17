@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <title>Student Management System</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <center>
+  <h1>STUDENT MANAGEMENT SYSTEM</h1>
+  </center>
+
+
+ 
+  <div>
+    <input type="text" id="searchBar" placeholder="Search by student name">
+    <button id="searchButton">Search</button>
+  </div>
+  
+
+  <h2>STUDENTS</h2>
+  <table id="studentsTable" border="" style="text-align:center" >
+    <thead>
+      <tr >
+        <th> Student ID </th>
+        <th>Student Name</th>
+        <th>Student Class</th>
+        <th>Date of Birth</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone</th>
+    
+      </tr>
+    </thead>
+    <tbody id="studentsData">
+      <!-- Student data will be dynamically added here -->
+    </tbody>
+  </table>
+
+
+
+  <h2>CREATE STUDENT</h2>
+  <form id="addStudentForm">
+    <table>
+      
+      <tr>
+       <td> <label for="studentId">Student ID:</label></td>
+       <td> <input type="text" id="studentId" required></td>
+     </tr>
+
+     <tr>
+       <td><label for="studentName">Student Name:</label></td>
+       <td><input type="text" id="studentName" required></td>
+    </tr>
+
+    <tr>
+      <td><label for="studentClass">Student Class:</label></td>
+      <td><input type="text" id="studentClass" required></td>
+    </tr>
+
+    <tr>
+      <td><label for="studentDOB">Date of Birth:</label></td>
+      <td><input type="text" id="studentDOB" required></td>
+    </tr>
+
+    <tr>
+      <td><label for="studentGender">Gender:</label></td>
+      <td><input type="text" id="studentGender" required></td>
+    </tr>
+
+    <tr>
+      <td><label for="studentEmail">Email:</label></td>
+      <td><input type="email" id="studentEmail" required></td>
+    </tr>
+
+    <tr>
+      <td><label for="studentPhone">Phone:</label></td>
+      <td><input type="text" id="studentPhone" required></td>
+    </tr>
+  
+  </table>
+
+  <input type="submit" value="Add Student">
+  
+  </form>
+
+
+
+  <h2>DELETE STUDENT</h2> 
+
+  <form id="deleteStudentForm">
+    <label for="studentIdFromForm">Student ID:</label>
+    <input type="text" id="studentIdFromForm" required>
+    <input type="submit" value="Delete Student">
+  </form>
+
+  
+
+  <script src="student.js"></script>
+</body>
+</html>

@@ -1,12 +1,12 @@
-
 [
-  {"student_id": 2001, "student_name": "Justin", "student_class": "2", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "justin@gmail.com", "student_ph.no": "0899451745"},
-  {"student_id": 2002 , "student_name": "Nandini", "student_class": "2", "student_dob": "17/05/2000", "student_gender":"Female", "student_email": "nandini@gmail.com", "student_ph.no": "0899451745"},
+  {"student_id": 2001, "student_name": "Justin", "student_class": "2", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "justin@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 2002 , "student_name": "Nandini", "student_class": "2", "student_dob": "17/05/2000", "student_gender":"Female", "student_email": "nandini@gmail.com", "student_phn": "0899451745"},
   {"student_id": 3001, "student_name": "Jerin", "student_class": "3", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "jerin@gmail.com", "student_ph.no": "0899451745"},
-  {"student_id": 3002 , "student_name": "Arjun", "student_class": "3", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "arjun@gmail.com", "student_ph.no": "0899451745"},
-  {"student_id": 4001, "student_name": "Fhilip", "student_class": "4", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "fhilip@gmail.com", "student_ph.no": "0899451745"},
-  {"student_id": 4002 , "student_name": "Subin", "student_class": "4", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "subin@gmail.com", "student_ph.no": "0899451745"},
-  {"student_id": 5001, "student_name": "Kevin", "student_class": "5", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "kevin@gmail.com", "student_ph.no": "0899451745"},
-  {"student_id": 5002 , "student_name": "Bitto", "student_class": "5", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "bitto@gmail.com", "student_ph.no": "0899451745"}
+  {"student_id": 3002 , "student_name": "Arjun", "student_class": "3", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "arjun@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 4001, "student_name": "Fhilip", "student_class": "4", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "fhilip@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 4002 , "student_name": "Subin", "student_class": "4", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "subin@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 5001, "student_name": "Kevin", "student_class": "5", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "kevin@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 5002 , "student_name": "Bitto", "student_class": "5", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "bitto@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 6001 , "student_name": "Sarun", "student_class": "6", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "sarun@gmail.com", "student_phn": "0899451745"}
 
 ]
