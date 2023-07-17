@@ -10,22 +10,22 @@ app = Flask(__name__)
 teachers_file = 'Storage/teachers.json'
 
 # Load teachers from the file
+teachers_file = 'Storage/teachers.json'
+
 def load_teachers_from_file():
-    teachers_data = []
-    if os.path.exists(teachers_file):
-        with open(teachers_file) as f:
-            teachers_data = json.load(f)
+    with open(teachers_file) as f:
+        teachers_data = json.load(f)
     return teachers_data
+
+@app.route('/getteachers', methods=['GET'])
+def get_teachers():
+    teachers_data = load_teachers_from_file()
+    return jsonify(teachers_data)
 
 # Save teachers to the file
 def save_teachers_to_file(teachers_data):
     with open(teachers_file, 'w') as f:
         json.dump(teachers_data, f, indent=4)
-
-@app.route('/teachers', methods=['GET'])
-def get_teachers():
-    teachers_data = load_teachers_from_file()
-    return jsonify(teachers_data)
 
 @app.route('/addteachers', methods=['POST'])
 def create_teacher():
