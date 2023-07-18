@@ -294,7 +294,8 @@ def delete_teacher(teacher_id):
 # Grades Section
 
 GRADES_FILE = 'Storage/grades.json'
-STUDENT_FILE = 'Storage/students.json'
+STUDENTF = 'Storage/students.json'
+SUBJECTF = 'Storage/subjects.json'
 
 
 # Load the JSON data from a file
@@ -311,14 +312,28 @@ def save_data(data, file_path):
 
 
 # Get all grades
-@app.route('/grades', methods=['GET'])
+@app.route('/getgrades', methods=['GET'])
 def get_grades():
     grades_data = load_data(GRADES_FILE)
     return jsonify(grades_data)
 
+def check_student_id_exists(student_id):
+    with open(STUDENTF) as file:
+        students_data = json.load(file)
+    existing_ids = [student['student_id'] for student in students_data]
+    return student_id in existing_ids
+
+
+# Function to check if a given subject_id exists in the subject data file
+def check_subject_id_exists(subject_id):
+    with open(SUBJECTF) as file:
+        subjects_data = json.load(file)
+    existing_ids = [subject['subject_id'] for subject in subjects_data]
+    return subject_id in existing_ids
+
 
 # Add a grade to a student
-@app.route('/grades', methods=['POST'])
+@app.route('/addgrades', methods=['POST'])
 def create_grade():
     # Get the new grade data from the request body
     new_grade = request.json
@@ -331,6 +346,14 @@ def create_grade():
     if new_grade['grade_id'] in existing_ids:
         return jsonify({'error': 'Grade ID already exists'}), 400
 
+        # Check if student_id exists
+    if not check_student_id_exists(new_grade['student_id']):
+        return jsonify({'error': 'Student ID does not exist'}), 400
+
+        # Check if subject_id exists
+    if not check_subject_id_exists(new_grade['subject_id']):
+        return jsonify({'error': 'Subject ID does not exist'}), 400
+
     # Add the new grade to the list
     grades_data.append(new_grade)
 
@@ -341,7 +364,7 @@ def create_grade():
 
 
 # Update a grade
-@app.route('/grades/<string:grade_id>', methods=['PUT'])
+@app.route('/updategrades/<int:grade_id>', methods=['PUT'])
 def update_grade(grade_id):
     # Get the updated grade data from the request body
     updated_grade = request.json
@@ -363,9 +386,11 @@ def update_grade(grade_id):
 
 
 # Delete a grade
-@app.route('/grades/<string:grade_id>', methods=['DELETE'])
+@app.route('/deletegrades/<int:grade_id>', methods=['DELETE'])
 def delete_grade(grade_id):
     # Load existing grades
+
+    print(grade_id)
     grades_data = load_data(GRADES_FILE)
 
     # Find the grade to delete
@@ -382,7 +407,59 @@ def delete_grade(grade_id):
 
 
 ##############################################################################################################################
+#students section
 
+students_file = 'Storage/students.json'
+
+
+class StudentAPI:
+    @staticmethod
+    def open_student():
+        with open(students_file) as f:
+            students_data = json.load(f)
+        return students_data
+
+    @staticmethod
+    def save_student(students_data):
+        with open(students_file, 'w') as f:
+            json.dump(students_data, f)
+
+    @staticmethod
+    @app.route('/students', methods=['GET'])
+    def get_students():
+        students_data = StudentAPI.open_student()
+        return jsonify(students_data)
+
+    # new student
+
+    @app.route('/newstudent', methods=['POST'])
+    def create_student(self):
+        new_student = request.json
+
+        students_data = StudentAPI.open_student()
+        students_data.append(new_student)
+
+        StudentAPI.save_student(students_data)
+        return jsonify(new_student), 201
+
+    # delete student
+
+    @app.route('/deletestudents/<int:student_id>', methods=['DELETE'])
+    def delete_student(self, student_id):
+        students_data = StudentAPI.open_student()
+        for student in students_data:
+            if student['student_id'] == student_id:
+                students_data.remove(student)
+                break
+
+        StudentAPI.save_student(students_data)
+        return jsonify({'message': 'Student Deleted'}), 200
+
+
+student_api = StudentAPI()
+
+
+##############################################################################################################################
 
 # Run the Flask app on localhost with port 8080
 if __name__ == '__main__':

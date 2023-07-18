@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student Information</title>
+  <title>Grades</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-/i97KBVOnul2sKPdQDr8nTR9tWYFKLvLmhkoX9D2exubL1wQClam0nQWpv8kX5uXuFZ+z94lRgUHYgB9o5dng==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <div class="student-info">
-    <h2>Student Information</h2>
-    <table>
-      <tr>
-        <th>Student ID</th>
-        <th>Student Name</th>
-        <th>Subject</th>
-        <th>Mark</th>
-        <th>Grade</th>
-      </tr>
-      <tr>
-        <td rowspan="3">001</td>
-        <td rowspan="3">Nimal Perera</td>
-        <td>Math</td>
-        <td>80</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>Science</td>
-        <td>75</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>English</td>
-        <td>90</td>
-        <td>A+</td>
-      </tr>
+    <div class="">
+        <nav class="navbar">
+          <div class="nav-logo">Grades</div>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="teachers.html"><i class="fas fa-search"></i>Teachers</a></li>
+            <li class="nav-item"><a href="student.html"><i class="fas fa-info-circle"></i> Students</a></li>
+            <li class="nav-item"><a href="subjects.html"><i class="fas fa-envelope"></i> Subjects</a></li>
+            <li class="nav-item"><a href="home.html"><i class="fas fa-envelope"></i> Log-Out</a></li>
+          </ul>
+        </nav>
+      </div>
+  <div class="container mt-4">
+    <h2>Students Grades</h2>
+    <div class="mb-2">
+        <form class="mb-3">
+            <div class="row">
+              <div class="col-md-2">
+                <label for="gradeId">Grade ID:</label>
+                <input type="text" id="gradeId" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <label for="subjectId">Subject ID:</label>
+                <input type="text" id="subjectId" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <label for="mark">Mark:</label>
+                <input type="text" id="mark" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <label for="grade">Grade:</label>
+                <input type="text" id="grade" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="btn btn-primary btn-block" id="addNewBtn">Add New</button>
+              </div>
+            </div>
+          </form>
+      </div>
+    <table class="table table-striped mt-4" id="gradesTable">
+      <thead>
+        <tr>
+          <th>Grade ID</th>
+          <th>Student ID</th>
+          <th>Subject</th>
+          <th>Mark</th>
+          <th>Grade</th>
+          <td>
+            <button class="btn btn-sm btn-primary" data-grade-id="${grade.grade_id}" data-action="edit">Edit</button>
+            <button class="btn btn-sm btn-danger" data-grade-id="${grade.grade_id}" data-action="delete">Delete</button>
+          </td>
+        </tr>
+      </thead>
+      <tbody id="gradesTableBody">
+      </tbody>
     </table>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-/i97KBVOnul2sKPdQDr8nTR9tWYFKLvLmhkoX9D2exubL1wQClam0nQWpv8kX5uXuFZ+z94lRgUHYgB9o5dng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="grades.js"></script>
 </body>
 </html>
