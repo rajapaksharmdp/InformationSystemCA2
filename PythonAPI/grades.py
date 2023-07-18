@@ -3,8 +3,10 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Grades Section
 GRADES_FILE = 'Storage/grades.json'
-STUDENT_FILE = 'Storage/students.json'
+STUDENTF = 'Storage/students.json'
+SUBJECTF = 'Storage/subjects.json'
 
 
 # Load the JSON data from a file
@@ -93,5 +95,6 @@ def delete_grade(grade_id):
 
 if __name__ == '__main__':
     app.run(port=8080)
-    
+
+
 
