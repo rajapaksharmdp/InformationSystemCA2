@@ -183,3 +183,21 @@ li a{
   border-radius: 4px;
   font-size: 16px;
 }
+
+.list-group-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Add some spacing between each list item */
+.list-group-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+
+

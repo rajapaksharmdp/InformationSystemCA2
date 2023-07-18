@@ -1,197 +1,200 @@
 [
   {
-    "student_id": "001",
-    "student_name": "Nimal Perera",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 80,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "001",
-    "student_name": "Nimal Perera",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 75,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "001",
-    "student_name": "Nimal Perera",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 90,
-        "grade": "A+"
-      }
-    ]
-  },
-  {
-    "student_id": "002",
-    "student_name": "Jegan Sin",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 65,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "002",
-    "student_name": "Jegan Sin",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 70,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "002",
-    "student_name": "Jegan Sin",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 80,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "003",
-    "student_name": "Biyanka Don",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 55,
-        "grade": "C"
-      }
-    ]
-  },
-  {
-    "student_id": "003",
-    "student_name": "Biyanka Don",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 60,
-        "grade": "C"
-      }
-    ]
-  },
-  {
-    "student_id": "003",
-    "student_name": "Biyanka Don",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 50,
-        "grade": "D"
-      }
-    ]
-  },
-  {
-    "student_id": "004",
-    "student_name": "Anika Silva",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 85,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "004",
-    "student_name": "Anika Silva",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 80,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "004",
-    "student_name": "Anika Silva",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 75,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "005",
-    "student_name": "Mavin Jude",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 70,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "005",
-    "student_name": "Mavin Jude",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 65,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "005",
-    "student_name": "Mavin Jude",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 60,
-        "grade": "C"
-      }
-    ]
-  }
+  "grade_id": 1,
+  "student_id": "2001",
+  "subject_id": "Math",
+  "mark": 85,
+  "grade": "A"
+},
+{
+  "grade_id": 2,
+  "student_id": "2002",
+  "subject_id": "Math",
+  "mark": 92,
+  "grade": "A+"
+},
+{
+  "grade_id": 3,
+  "student_id": "3001",
+  "subject_id": "Math",
+  "mark": 78,
+  "grade": "B"
+},
+{
+  "grade_id": 4,
+  "student_id": "3002",
+  "subject_id": "Math",
+  "mark": 88,
+  "grade": "B+"
+},
+{
+  "grade_id": 5,
+  "student_id": "4001",
+  "subject_id": "Math",
+  "mark": 95,
+  "grade": "A+"
+},
+{
+  "grade_id": 6,
+  "student_id": "4002",
+  "subject_id": "Math",
+  "mark": 80,
+  "grade": "B"
+},
+{
+  "grade_id": 7,
+  "student_id": "5001",
+  "subject_id": "Math",
+  "mark": 89,
+  "grade": "B+"
+},
+{
+  "grade_id": 8,
+  "student_id": "5002",
+  "subject_id": "Math",
+  "mark": 93,
+  "grade": "A"
+},
+{
+  "grade_id": 9,
+  "student_id": "6001",
+  "subject_id": "Math",
+  "mark": 87,
+  "grade": "B+"
+},
+{
+  "grade_id": 10,
+  "student_id": "2001",
+  "subject_id": "English",
+  "mark": 79,
+  "grade": "B+"
+},
+{
+  "grade_id": 11,
+  "student_id": "2002",
+  "subject_id": "English",
+  "mark": 88,
+  "grade": "B+"
+},
+{
+  "grade_id": 12,
+  "student_id": "3001",
+  "subject_id": "English",
+  "mark": 92,
+  "grade": "A"
+},
+{
+  "grade_id": 13,
+  "student_id": "3002",
+  "subject_id": "English",
+  "mark": 85,
+  "grade": "A"
+},
+{
+  "grade_id": 14,
+  "student_id": "4001",
+  "subject_id": "English",
+  "mark": 81,
+  "grade": "B+"
+},
+{
+  "grade_id": 15,
+  "student_id": "4002",
+  "subject_id": "English",
+  "mark": 96,
+  "grade": "A+"
+},
+{
+  "grade_id": 16,
+  "student_id": "5001",
+  "subject_id": "English",
+  "mark": 87,
+  "grade": "B+"
+},
+{
+  "grade_id": 17,
+  "student_id": "5002",
+  "subject_id": "English",
+  "mark": 90,
+  "grade": "A"
+},
+{
+  "grade_id": 18,
+  "student_id": "6001",
+  "subject_id": "English",
+  "mark": 84,
+  "grade": "B"
+},
+{
+  "grade_id": 19,
+  "student_id": "2001",
+  "subject_id": "Chemistry",
+  "mark": 93,
+  "grade": "A"
+},
+{
+  "grade_id": 20,
+  "student_id": "2002",
+  "subject_id": "Chemistry",
+  "mark": 85,
+  "grade": "A"
+},
+{
+  "grade_id": 21,
+  "student_id": "3001",
+  "subject_id": "Chemistry",
+  "mark": 88,
+  "grade": "B+"
+},
+{
+  "grade_id": 22,
+  "student_id": "3002",
+  "subject_id": "Chemistry",
+  "mark": 79,
+  "grade": "B+"
+},
+{
+  "grade_id": 23,
+  "student_id": "4001",
+  "subject_id": "Chemistry",
+  "mark": 91,
+  "grade": "A"
+},
+{
+  "grade_id": 24,
+  "student_id": "4002",
+  "subject_id": "Chemistry",
+  "mark": 82,
+  "grade": "B+"
+},
+{
+  "grade_id": 25,
+  "student_id": "5001",
+  "subject_id": "Chemistry",
+  "mark": 96,
+  "grade": "A+"
+},
+{
+  "grade_id": 26,
+  "student_id": "5002",
+  "subject_id": "Chemistry",
+  "mark": 83,
+  "grade": "B+"
+},
+{
+  "grade_id": 27,
+  "student_id": "6001",
+  "subject_id": "Chemistry",
+  "mark": 89,
+  "grade": "B+"
+},
+  { "grade_id": 28, "student_id": "2001", "subject_id": "Math", "mark": 90, "grade": "A+" },
+  { "grade_id": 29, "student_id": "2002", "subject_id": "Math", "mark": 86, "grade": "B+" },
+  { "grade_id": 30, "student_id": "3001", "subject_id": "Math", "mark": 93, "grade": "A" },
+  { "grade_id": 128, "student_id": "2001", "subject_id": "English", "mark": 80, "grade": "B+" },
+  { "grade_id": 129, "student_id": "2002", "subject_id": "English", "mark": 88, "grade": "B+" },
+  { "grade_id": 130, "student_id": "3001", "subject_id": "English", "mark": 92, "grade": "A" },
+  { "grade_id": 228, "student_id": "2001", "subject_id": "Chemistry", "mark": 93, "grade": "A" },
+  { "grade_id": 229, "student_id": "2002", "subject_id": "Chemistry", "mark": 85, "grade": "A" },
+  { "grade_id": 230, "student_id": "3001", "subject_id": "Chemistry", "mark": 88, "grade": "B+" }
 ]
