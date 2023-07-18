@@ -1,4 +1,4 @@
-// Function to search for students by name
+// Function to searchfor students by name
 function searchStudents() {
   // Get the search query from the input field
   const searchInput = document.getElementById('searchBar').value.toLowerCase();

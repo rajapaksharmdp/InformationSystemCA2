@@ -7,6 +7,6 @@
   {"student_id": 4002 , "student_name": "Subin", "student_class": "4", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "subin@gmail.com", "student_phn": "0899451745"},
   {"student_id": 5001, "student_name": "Kevin", "student_class": "5", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "kevin@gmail.com", "student_phn": "0899451745"},
   {"student_id": 5002 , "student_name": "Bitto", "student_class": "5", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "bitto@gmail.com", "student_phn": "0899451745"},
+  {"student_id": 6001 , "student_name": "Sarun", "student_class": "6", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "sarun@gmail.com", "student_phn": "0899451745"},
   {"student_id": 6001 , "student_name": "Sarun", "student_class": "6", "student_dob": "17/05/2000", "student_gender":"Male", "student_email": "sarun@gmail.com", "student_phn": "0899451745"}
-
 ]
