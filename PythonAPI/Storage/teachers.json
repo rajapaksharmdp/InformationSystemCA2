@@ -1,6 +1,44 @@
-[{"teacher_id": 214, "teacher_name": "Andrew", "teacher_email": "andrew1@gmail.com", "teacher_ph.no": "0899451745", "teacher_address": "parnell street dublin ireland"},
-  {"teacher_id": 226, "teacher_name": "John", "teacher_email": "John13@gmail.com", "teacher_ph.no": "0899761235", "teacher_address": " limerick ireland"},
-  {"teacher_id": 342, "teacher_name": "Samson", "teacher_email": "samson98@gmail.com", "teacher_ph.no": "0878462459", "teacher_address": "terenure dublin ireland"},
-  {"teacher_id": 278, "teacher_name": "John", "teacher_email": "john978@gmail.com", "teacher_ph.no": "0878346459", "teacher_address": "lucan dublin ireland"}
-
+[
+    {
+        "address": "Parnell Street, Dublin, Ireland",
+        "email": "teacher1@gmail.com",
+        "teacher_id": 123,
+        "name": "John Smith",
+        "phone_no": "0851234567"
+    },
+    {
+        "address": "Main Street, London, UK",
+        "email": "teacher2@gmail.com",
+        "teacher_id": 456,
+        "name": "Alice Johnson",
+        "phone_no": "0789876543"
+    },
+    {
+        "address": "Broadway Avenue, New York, USA",
+        "email": "teacher3@gmail.com",
+        "teacher_id": 789,
+        "name": "Michael Brown",
+        "phone_no": "2125551234"
+    },
+    {
+        "address": "Rue de la Republique, Paris, France",
+        "email": "teacher4@gmail.com",
+        "teacher_id": 101,
+        "name": "Sophie Martin",
+        "phone_no": "0123456789"
+    },
+    {
+        "address": "Friedrichstrasse, Berlin, Germany",
+        "email": "teacher5@gmail.com",
+        "teacher_id": 987,
+        "name": "Daniel Mueller",
+        "phone_no": "0498765432"
+    },
+    {
+        "teacher_id": 1234,
+        "name": "Dulanga Rajapaksha",
+        "email": "dul@gmail.com",
+        "phone_no": "1212121212122",
+        "address": "17 Mountjoy Square East"
+    }
 ]

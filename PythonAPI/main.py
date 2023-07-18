@@ -27,7 +27,23 @@ def load_users_from_file():
     return users_data
 
 
-# register users
+def verify_teacher_id(teacher_id):
+    with open('Storage/teachers.json') as file:
+        teachers_data = json.load(file)
+    existing_ids = [teacher['teacher_id'] for teacher in teachers_data]
+    return teacher_id in existing_ids
+
+
+def verify_admin_id(admin_id, username):
+    with open('Storage/admin.json') as file:
+        admin_data = json.load(file)
+    for admin in admin_data:
+        if admin['admin_id'] == admin_id and admin['username'] == int(username):
+            return True
+    return False
+
+
+# Register users
 @app.route('/register', methods=['POST'])
 def register():
     try:
@@ -38,6 +54,19 @@ def register():
         if user_data['username'] in existing_usernames:
             return jsonify({'error': 'User already exists'}), 400
 
+        role = user_data.get('role')
+
+        if role == 'teacher':
+            teacher_id = int(user_data.get('username'))
+            if not verify_teacher_id(teacher_id):
+                return jsonify({'error': 'Invalid Teacher ID'}), 400
+
+        if role == 'admin':
+            admin_id = int(user_data.get('username'))
+            if not verify_admin_id(admin_id, user_data['username']):
+                return jsonify({'error': 'Invalid Admin ID or Username'}), 400
+
+        # Encrypt the password and save the user data
         password = user_data['password']
         hashed_password = hash_password(password)
 
@@ -49,6 +78,7 @@ def register():
 
     except Exception as e:
         return jsonify({'error': 'Registration failed', 'details': str(e)}), 500
+
 
 
 def hash_password(password):
