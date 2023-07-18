@@ -1,197 +1,40 @@
 [
   {
-    "student_id": "001",
-    "student_name": "Nimal Perera",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 80,
-        "grade_id": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "001",
-    "student_name": "Nimal Perera",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 75,
-        "grade_id": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "001",
-    "student_name": "Nimal Perera",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 90,
-        "grade_id": "A+"
-      }
-    ]
-  },
-  {
+    "grade_id": 2,
+    "subject_id": "Science",
     "student_id": "002",
-    "student_name": "Jegan Sin",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 65,
-        "grade_id": "B"
-      }
-    ]
+    "teacher_id": "T002",
+    "mark": 78,
+    "grade": "B"
   },
   {
-    "student_id": "002",
-    "student_name": "Jegan Sin",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 70,
-        "grade_id": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "002",
-    "student_name": "Jegan Sin",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 80,
-        "grade_id": "A"
-      }
-    ]
-  },
-  {
+    "grade_id": 3,
+    "subject_id": "English",
     "student_id": "003",
-    "student_name": "Biyanka Don",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 55,
-        "grade_id": "C"
-      }
-    ]
+    "teacher_id": "T003",
+    "mark": 92,
+    "grade": "A"
   },
   {
+    "grade_id": 4,
+    "subject_id": "History",
+    "student_id": "004",
+    "teacher_id": "T004",
+    "mark": 65,
+    "grade": "C"
+  },
+  {
+    "grade_id": 5,
     "student_id": "003",
-    "student_name": "Biyanka Don",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 60,
-        "grade_id": "C"
-      }
-    ]
+    "subject_id": "Math",
+    "mark": 98,
+    "grade": "A"
   },
   {
+    "grade_id": 6,
     "student_id": "003",
-    "student_name": "Biyanka Don",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 50,
-        "grade_id": "D"
-      }
-    ]
-  },
-  {
-    "student_id": "004",
-    "student_name": "Anika Silva",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 85,
-        "grade_id": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "004",
-    "student_name": "Anika Silva",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 80,
-        "grade_id": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "004",
-    "student_name": "Anika Silva",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 75,
-        "grade_id": "A"
-      }
-    ]
-  },
-  {
-    "student_id": "005",
-    "student_name": "Mavin Jude",
-    "subjects": [
-      {
-        "subject_id": "001",
-        "subject_name": "Math",
-        "teacher_id": "T001",
-        "mark": 70,
-        "grade_id": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "005",
-    "student_name": "Mavin Jude",
-    "subjects": [
-      {
-        "subject_id": "002",
-        "subject_name": "Science",
-        "teacher_id": "T002",
-        "mark": 65,
-        "grade_id": "B"
-      }
-    ]
-  },
-  {
-    "student_id": "005",
-    "student_name": "Mavin Jude",
-    "subjects": [
-      {
-        "subject_id": "003",
-        "subject_name": "English",
-        "teacher_id": "T003",
-        "mark": 60,
-        "grade_id": "C"
-      }
-    ]
+    "subject_id": "Math",
+    "mark": 98,
+    "grade": "A"
   }
 ]
