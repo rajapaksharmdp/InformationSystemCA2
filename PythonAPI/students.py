@@ -41,7 +41,7 @@ class StudentAPI:
         return jsonify(new_student), 201
 
 
-    # delete student
+    # delete student,
 
     @app.route('/deletestudents/<int:student_id>', methods=['DELETE'])
     def delete_student(self, student_id):
