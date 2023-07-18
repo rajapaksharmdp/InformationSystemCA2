@@ -26,6 +26,16 @@ def get_students():
     return jsonify(students_data)
 
 
+#add student
+@app.route('/newstudent', methods=['POST'])
+def create_student():
+    new_student = request.json
+
+    students_data = open_student()
+    students_data.append(new_student)
+
+    save_student(students_data)
+    return jsonify(new_student), 201
 
 if __name__ == '__main__':
     app.run(port=8080)
