@@ -196,5 +196,43 @@
   { "grade_id": 130, "student_id": "3001", "subject_id": "English", "mark": 92, "grade": "A" },
   { "grade_id": 228, "student_id": "2001", "subject_id": "Chemistry", "mark": 93, "grade": "A" },
   { "grade_id": 229, "student_id": "2002", "subject_id": "Chemistry", "mark": 85, "grade": "A" },
-  { "grade_id": 230, "student_id": "3001", "subject_id": "Chemistry", "mark": 88, "grade": "B+" }
+  { "grade_id": 230, "student_id": "3001", "subject_id": "Chemistry", "mark": 88, "grade": "B+" },
+
+  {  "grade_id": 2,
+    "subject_id": "Science",
+    "student_id": "002",
+    "teacher_id": "T002",
+    "mark": 78,
+    "grade": "B"
+  },
+  {
+    "grade_id": 3,
+    "subject_id": "English",
+    "student_id": "003",
+    "teacher_id": "T003",
+    "mark": 92,
+    "grade": "A"
+  },
+  {
+    "grade_id": 4,
+    "subject_id": "History",
+    "student_id": "004",
+    "teacher_id": "T004",
+    "mark": 65,
+    "grade": "C"
+  },
+  {
+    "grade_id": 5,
+    "student_id": "003",
+    "subject_id": "Math",
+    "mark": 98,
+    "grade": "A"
+  },
+  {
+    "grade_id": 6,
+    "student_id": "003",
+    "subject_id": "Math",
+    "mark": 98,
+    "grade": "A"
+  }
 ]
