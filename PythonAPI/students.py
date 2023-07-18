@@ -37,5 +37,18 @@ def create_student():
     save_student(students_data)
     return jsonify(new_student), 201
 
+#delete student
+
+@app.route('/deletestudents/<int:student_id>', methods=['DELETE'])
+def delete_student(student_id):
+    students_data = open_student()
+    for student in students_data:
+        if student['student_id'] == student_id:
+            students_data.remove(student)
+            break
+
+    save_student(students_data)
+    return jsonify({'message': 'Student Deleted'}), 200
+
 if __name__ == '__main__':
     app.run(port=8080)
