@@ -11,51 +11,44 @@ CORS(app)
 students_file = 'Storage/students.json'
 
 
-class StudentAPI:
-    @staticmethod
-    def open_student():
-        with open(students_file) as f:
-            students_data = json.load(f)
-        return students_data
+def open_student():
+    with open(students_file) as f:
+        students_data = json.load(f)
+    return students_data
 
-    @staticmethod
-    def save_student(students_data):
-        with open(students_file, 'w') as f:
-            json.dump(students_data, f)
+def save_student(students_data):
+    with open(students_file, 'w') as f:
+        json.dump(students_data, f)
 
-    @app.route('/students', methods=['GET'])
-    def get_students(self):
-        students_data = StudentAPI.open_student()
-        return jsonify(students_data)
-
-    # new student
-
-    @app.route('/newstudent', methods=['POST'])
-    def create_student(self):
-        new_student = request.json
-
-        students_data = StudentAPI.open_student()
-        students_data.append(new_student)
-
-        StudentAPI.save_student(students_data)
-        return jsonify(new_student), 201
+@app.route('/students', methods=['GET'])
+def get_students():
+    students_data = open_student()
+    return jsonify(students_data)
 
 
-    # delete student,
+#add student
+@app.route('/newstudent', methods=['POST'])
+def create_student():
+    new_student = request.json
 
-    @app.route('/deletestudents/<int:student_id>', methods=['DELETE'])
-    def delete_student(self, student_id):
-        students_data = StudentAPI.open_student()
-        for student in students_data:
-            if student['student_id'] == student_id:
-                students_data.remove(student)
-                break
+    students_data = open_student()
+    students_data.append(new_student)
 
-        StudentAPI.save_student(students_data)
-        return jsonify({'message': 'Student Deleted'}), 200
+    save_student(students_data)
+    return jsonify(new_student), 201
 
+#delete student
 
-student_api = StudentAPI()
+@app.route('/deletestudents/<int:student_id>', methods=['DELETE'])
+def delete_student(student_id):
+    students_data = open_student()
+    for student in students_data:
+        if student['student_id'] == student_id:
+            students_data.remove(student)
+            break
+
+    save_student(students_data)
+    return jsonify({'message': 'Student Deleted'}), 200
 
 if __name__ == '__main__':
     app.run(port=8080)
