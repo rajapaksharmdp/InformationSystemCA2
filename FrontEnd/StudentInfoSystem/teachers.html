@@ -1,3 +1,4 @@
+<!-- teachers.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +47,33 @@
             <input type="text" class="form-control" id="address" required>
           </div>
           <button type="submit" class="btn btn-primary">Add Teacher</button>
+        </form>
+
+        <!-- Update Teacher Form -->
+        <form id="updateTeacherForm" style="display: none;">
+          <h4>Update Teacher</h4>
+          <div class="form-group">
+            <label for="update_teacher_id">Teacher ID</label>
+            <input type="number" class="form-control" id="update_teacher_id" required disabled>
+          </div>
+          <div class="form-group">
+            <label for="update_name">Name</label>
+            <input type="text" class="form-control" id="update_name" required>
+          </div>
+          <div class="form-group">
+            <label for="update_email">Email</label>
+            <input type="email" class="form-control" id="update_email" required>
+          </div>
+          <div class="form-group">
+            <label for="update_phone_no">Phone Number</label>
+            <input type="tel" class="form-control" id="update_phone_no" required>
+          </div>
+          <div class="form-group">
+            <label for="update_address">Address</label>
+            <input type="text" class="form-control" id="update_address" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Teacher</button>
+          <button id="cancelUpdateBtn" type="button" class="btn btn-secondary">Cancel</button>
         </form>
       </div>
       <div class="col-md-6">

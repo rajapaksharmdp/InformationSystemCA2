@@ -1,91 +1,159 @@
-<!-- teachers.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Teachers</title>
+  <title>Subjects</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="">
-        <nav class="navbar">
-          <div class="nav-logo">Teachers</div>
-          <ul class="nav-list">
-            <li class="nav-item"><a href="subjects.html"><i class="fas fa-envelope"></i> Subjects</a></li>
-            <li class="nav-item"><a href="teachers.html"><i class="fas fa-search"></i>Teachers</a></li>
-            <li class="nav-item"><a href="student.html"><i class="fas fa-info-circle"></i> Students</a></li>
-            <li class="nav-item"><a href="grades.html"><i class="fas fa-envelope"></i> Grades</a></li>
-            <li class="nav-item"><a href="graph.html"><i class="fas fa-envelope"></i> Result Analysis</a></li>
-            <li class="nav-item"><a href="home.html"><i class="fas fa-envelope"></i> Log-Out</a></li>
-          </ul>
-        </nav>
+  <div class="">
+    <nav class="navbar">
+      <div class="nav-logo">Subjects</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="subjects.html"><i class="fas fa-envelope"></i> Subjects</a></li>
+        <li class="nav-item"><a href="teachers.html"><i class="fas fa-search"></i>Teachers</a></li>
+        <li class="nav-item"><a href="student.html"><i class="fas fa-info-circle"></i> Students</a></li>
+        <li class="nav-item"><a href="grades.html"><i class="fas fa-envelope"></i> Grades</a></li>
+        <li class="nav-item"><a href="graph.html"><i class="fas fa-envelope"></i> Result Analysis</a></li>
+        <li class="nav-item"><a href="home.html"><i class="fas fa-envelope"></i> Log-Out</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="subject-id">Subject ID:</label>
+        <input type="text" id="subject-id" class="form-control">
       </div>
-  <div class="container mt-5">
-    <h2>Teachers</h2>
+    </div>
 
-    <div class="row mt-3">
-      <div class="col-md-6">
-        <form id="addTeacherForm">
-          <div class="form-group">
-            <label for="teacher_id">Teacher ID</label>
-            <input type="number" class="form-control" id="teacher_id" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-          <div class="form-group">
-            <label for="phone_no">Phone Number</label>
-            <input type="tel" class="form-control" id="phone_no" required>
-          </div>
-          <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Add Teacher</button>
-        </form>
-
-        <!-- Update Teacher Form -->
-        <form id="updateTeacherForm" style="display: none;">
-          <h4>Update Teacher</h4>
-          <div class="form-group">
-            <label for="update_teacher_id">Teacher ID</label>
-            <input type="number" class="form-control" id="update_teacher_id" required disabled>
-          </div>
-          <div class="form-group">
-            <label for="update_name">Name</label>
-            <input type="text" class="form-control" id="update_name" required>
-          </div>
-          <div class="form-group">
-            <label for="update_email">Email</label>
-            <input type="email" class="form-control" id="update_email" required>
-          </div>
-          <div class="form-group">
-            <label for="update_phone_no">Phone Number</label>
-            <input type="tel" class="form-control" id="update_phone_no" required>
-          </div>
-          <div class="form-group">
-            <label for="update_address">Address</label>
-            <input type="text" class="form-control" id="update_address" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Update Teacher</button>
-          <button id="cancelUpdateBtn" type="button" class="btn btn-secondary">Cancel</button>
-        </form>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="subject-name">Subject Name:</label>
+        <input type="text" id="subject-name" class="form-control">
       </div>
-      <div class="col-md-6">
-        <h4>Teachers List</h4>
-        <ul id="teachersList" class="list-group">
-        </ul>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="teacher-name">Teacher Name:</label>
+        <input type="text" id="teacher-name" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <button id="filter-btn" class="filterbutton">Filter Subjects</button>
+        <button id="add-subject-btn" class="addsubjectbutton" data-toggle="modal" data-target="#subjectModal">Add New Subject</button>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="sort-by">
+                <option value="subject_name">Subject Name</option>
+                <option value="subject_id">Subject ID</option>
+              </select>
+
+              <select id="sort-order">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+        </div>
+      </div>
+
+  </div>
+
+  <div id="subjects"></div>
+
+  <!-- Subject Modal -->
+  <div class="modal fade" id="subjectModal" tabindex="-1" role="dialog" aria-labelledby="subjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subjectModalLabel">Add New Subject</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="subjectForm">
+            <div class="form-group">
+              <label for="subjectIdInput">Subject ID:</label>
+              <input type="text" class="form-control" id="subjectIdInput" required>
+            </div>
+            <div class="form-group">
+              <label for="subjectNameInput">Subject Name:</label>
+              <input type="text" class="form-control" id="subjectNameInput" required>
+            </div>
+            <div class="form-group">
+              <label for="contentInput">Content:</label>
+              <input type="text" class="form-control" id="contentInput" required>
+            </div>
+            <div class="form-group">
+              <label for="topicsInput">Topics:</label>
+              <textarea class="form-control" id="topicsInput" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="teachersInput">Teachers:</label>
+              <input type="text" class="form-control" id="teachersInput" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="saveSubjectBtn">Save</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateModalLabel">Update Subject</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="updateSubjectIdInput" class="form-label">Subject ID</label>
+              <input type="text" class="form-control" id="updateSubjectIdInput" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="updateSubjectNameInput" class="form-label">Subject Name</label>
+              <input type="text" class="form-control" id="updateSubjectNameInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateContentInput" class="form-label">Content</label>
+              <textarea class="form-control" id="updateContentInput" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="updateTopicsInput" class="form-label">Topics</label>
+              <input type="text" class="form-control" id="updateTopicsInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateTeachersInput" class="form-label">Teachers</label>
+              <input type="text" class="form-control" id="updateTeachersInput" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="updateSubjectBtn">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="teachers.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="subjects.js"></script>
 </body>
 </html>
